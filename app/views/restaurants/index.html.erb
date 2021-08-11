@@ -1,0 +1,14 @@
+<div class="container d-flex justify-content-center flex-wrap">
+  <% @restaurants.each do |restaurant| %>
+    <div class="card-product">
+      <%= image_tag "http://source.unsplash.com/featured/?restaurant&#{rand(1000)}" %>
+      <div class="card-product-infos">
+        <h2><%= restaurant.name %></h2>
+        <p><%= restaurant.address %></p>
+        <p><%= restaurant.phone_number %></p>
+        <p><%= restaurant.category.capitalize %></p>
+      </div>
+      <%= link_to '', restaurant_path(restaurant), class: 'card-link' %>
+    </div>
+  <% end %>
+</div>

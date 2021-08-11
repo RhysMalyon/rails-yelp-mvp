@@ -1,0 +1,29 @@
+<div class="container d-flex justify-content-center flex-wrap">
+  <div class="card-product" style="width: 70vw">
+    <%= image_tag "http://source.unsplash.com/featured/?restaurant&#{rand(1000)}" %>
+    <div class="card-product-infos">
+      <h2><%= @restaurant.name %></h2>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.category.capitalize %></p>
+    </div>
+  </div>
+</div>
+
+<div class="options-container">
+  <%= link_to 'Back', restaurants_path %> |
+  <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+</div>
+
+
+<div class="container">
+  <ul class="list-group border p-2 mt-3">
+    <h2 class="text-center">Reviews</h2>
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item mt-3"><%= review.content %> - <%= review.rating %>/5</li>
+    <% end %>
+  </ul>
+  <div class="container my-3 w-50 text-center">
+    <%= render "reviews/form", review: @review %>
+  </div>
+</div>
