@@ -10,14 +10,8 @@
   </div>
 </div>
 
-<div class="options-container">
-  <%= link_to 'Back', restaurants_path %> |
-  <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
-</div>
-
-
 <div class="container">
-  <ul class="list-group border p-2 mt-3">
+  <ul class="list-group border p-3 mt-3">
     <h2 class="text-center">Reviews</h2>
     <% @restaurant.reviews.each do |review| %>
       <li class="list-group-item mt-3"><%= review.content %> - <%= review.rating %>/5</li>

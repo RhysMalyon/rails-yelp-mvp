@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to restaurant_path(@restaurant)
     else
-      render :new
+      render '/restaurants/show'
     end
   end
 
